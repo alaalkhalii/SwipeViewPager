@@ -11,7 +11,6 @@ public class addNote extends AppCompatActivity {
     private EditText title;
     private EditText Desc;
     private Button addnote;
-    private SharedPrefsManager sharedPrefsManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +20,6 @@ public class addNote extends AppCompatActivity {
         title= findViewById(R.id.titlee);
         Desc = findViewById(R.id.descc);
         addnote = findViewById(R.id.add);
-        sharedPrefsManager=SharedPrefsManager.getInstance();
 
          addnote.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -32,7 +30,6 @@ public class addNote extends AppCompatActivity {
                  Intent x = new Intent(getApplicationContext(), MainActivity.class);
                  x.putExtra("title", pureTitle);
                  x.putExtra("description", pureDesc);
-                 sharedPrefsManager.setString("title",pureTitle);
                  startActivity(x);
                  finish();
              }

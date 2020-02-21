@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
         order = findViewById(R.id.btnOrder);
         noteModels = new ArrayList<>();
-        SharedPrefsManager.initialize(this);
         Intent x=getIntent();
         if(x.getStringExtra("title")!=null  &&x.getStringExtra("description")!= null ){
             title=x.getStringExtra("title");
@@ -56,10 +55,9 @@ public class MainActivity extends AppCompatActivity {
 
         colors = colors_temp;
 
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
                 if (position < (adapter.getCount() -1) && position < (colors.length - 1)) {
                     viewPager.setBackgroundColor(
 
@@ -74,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     viewPager.setBackgroundColor(colors[colors.length - 1]);
                 }
+
             }
 
             @Override
@@ -86,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

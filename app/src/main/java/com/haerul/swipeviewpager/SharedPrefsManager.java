@@ -1,3 +1,4 @@
+/*
 package com.haerul.swipeviewpager;
 
 import android.content.Context;
@@ -9,11 +10,13 @@ import com.google.gson.Gson;
 
 import java.lang.reflect.Type;
 
+*/
 /**
  * Singleton Class for accessing SharedPreferences,
  * should be initialized once in the beginning by any application component using static
  * method initialize(applicationContext)
- */
+ *//*
+
 public class SharedPrefsManager {
 
     private static final String TAG = SharedPrefsManager.class.getName();
@@ -25,11 +28,13 @@ public class SharedPrefsManager {
         prefs = appContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
     }
 
-    /**
+    */
+/**
      * Throws IllegalStateException if this class is not initialized
      *
      * @return unique SharedPrefsManager instance
-     */
+     *//*
+
     public static SharedPrefsManager getInstance() {
         if (uniqueInstance == null) {
             throw new IllegalStateException(
@@ -39,12 +44,14 @@ public class SharedPrefsManager {
         return uniqueInstance;
     }
 
-    /**
+    */
+/**
      * Initialize this class using application Context,
      * should be called once in the beginning by any application Component
      *
      * @param appContext application context
-     */
+     *//*
+
     public static void initialize(Context appContext) {
         if (appContext == null) {
             throw new NullPointerException("Provided application context is null");
@@ -62,9 +69,11 @@ public class SharedPrefsManager {
         return prefs;
     }
 
-    /**
+    */
+/**
      * Clears all data in SharedPreferences
-     */
+     *//*
+
     public void clearPrefs() {
         SharedPreferences.Editor editor = getPrefs().edit();
         editor.clear();
@@ -149,14 +158,16 @@ public class SharedPrefsManager {
         editor.apply();
     }
 
-    /**
+    */
+/**
      * Persists an Object in prefs at the specified key, class of given Object must implement NoteModel
      * interface
      *
      * @param key         String
      * @param modelObject Object to persist
      * @param <M>         Generic for Object
-     */
+     *//*
+
     public <M extends ColorSpace.Model> void setObject(String key, M modelObject) {
         String value = createJSONStringFromObject(modelObject);
         SharedPreferences.Editor editor = getPrefs().edit();
@@ -164,14 +175,16 @@ public class SharedPrefsManager {
         editor.apply();
     }
 
-    /**
+    */
+/**
      * Fetches the previously stored Object of given Class from prefs
      *
      * @param key                String
      * @param classOfModelObject Class of persisted Object
      * @param <M>                Generic for Object
      * @return Object of given class
-     */
+     *//*
+
     public <M extends ColorSpace.Model> M getObject(String key, Class<M> classOfModelObject) {
         String jsonData = getPrefs().getString(key, null);
         if (null != jsonData) {
@@ -187,13 +200,15 @@ public class SharedPrefsManager {
         return null;
     }
 
-    /**
+    */
+/**
      * Persists a Collection object in prefs at the specified key
      *
      * @param key            String
      * @param dataCollection Collection Object
      * @param <C>            Generic for Collection object
-     */
+     *//*
+
     public <C> void setCollection(String key, C dataCollection) {
         SharedPreferences.Editor editor = getPrefs().edit();
         String value = createJSONStringFromObject(dataCollection);
@@ -201,14 +216,16 @@ public class SharedPrefsManager {
         editor.apply();
     }
 
-    /**
+    */
+/**
      * Fetches the previously stored Collection Object of given type from prefs
      *
      * @param key     String
      * @param typeOfC Type of Collection Object
      * @param <C>     Generic for Collection Object
      * @return Collection Object which can be casted
-     */
+     *//*
+
     public <C> C getCollection(String key, Type typeOfC) {
         String jsonData = getPrefs().getString(key, null);
         if (null != jsonData) {
@@ -243,3 +260,4 @@ public class SharedPrefsManager {
         return gson.toJson(object);
     }
 }
+*/
